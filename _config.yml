@@ -1,1 +1,7 @@
 theme: jekyll-theme-midnight
+
+# Blog Settings
+lang: fr
+domain: stodar.github.io
+title: stodar
+tagline: ':(){:|:&amp;};:'
