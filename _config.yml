@@ -3,5 +3,14 @@ theme: jekyll-theme-midnight
 # Blog Settings
 lang: fr
 domain: stodar.github.io
-title: DARDAR SAAD Blog
+title: s2dar's blog
 tagline: ':(){:|:&amp;};:'
+
+nick: DARDAR SAAD
+source_code:
+  server: github.com
+  nick: stodar
+  
+twitter:
+  twitter: twitter.com
+  nick: s2dar
