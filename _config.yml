@@ -1,6 +1,9 @@
 theme: jekyll-theme-midnight
 
-# Blog Settings
+markdown: kramdown
+
+disqus: wmsdardar
+
 lang: fr
 domain: stodar.github.io
 title: s2dar's blog
