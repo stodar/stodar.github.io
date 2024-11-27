@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Stodar Blog</title>
+    <link>http://stodar.github.io/</link>
+    <description>Recent content on Stodar Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 27 Nov 2024 09:54:53 +0100</lastBuildDate>
+    <atom:link href="http://stodar.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mon Deuxieme Article</title>
+      <link>http://stodar.github.io/posts/2024-11-27-mon-deuxieme-article/</link>
+      <pubDate>Wed, 27 Nov 2024 09:54:53 +0100</pubDate>
+      <guid>http://stodar.github.io/posts/2024-11-27-mon-deuxieme-article/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mon Premier Article</title>
+      <link>http://stodar.github.io/posts/mon-premier-article/</link>
+      <pubDate>Wed, 27 Nov 2024 09:36:07 +0100</pubDate>
+      <guid>http://stodar.github.io/posts/mon-premier-article/</guid>
+      <description>&lt;p&gt;Optional features&#xA;Custom copyright text&lt;/p&gt;&#xA;&lt;p&gt;Add copyright = &amp;ldquo;Your text here&amp;rdquo; - in the config.toml to change the copyright notice in the footer.&#xA;Image captions&lt;/p&gt;&#xA;&lt;p&gt;You can add captions to images (technically using &lt;!-- raw HTML omitted --&gt; HTML tags) by adding titles, like so: &#xD;&#xA;&lt;figure&gt;&#xD;&#xA;  &lt;img src=&#34;http://stodar.github.io/path/to/image.png&#34; alt=&#34;Alt text here&#34; /&gt;&#xD;&#xA;  &lt;figcaption&gt;Put your caption here!&lt;/figcaption&gt;&#xD;&#xA;&lt;/figure&gt;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xA;Contributing&lt;/p&gt;&#xA;&lt;p&gt;Have you found a bug or got an idea for a new feature? Feel free to use the issue tracker to let me know. Or make directly a pull request.&#xA;License&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
