@@ -1,5 +1,2 @@
-Here you can say lots of fun things about your site.
-
-Maybe say a some things about yourself.
-
-Or maybe what you plan to blog about.
+const mot = "\u0627\u0644\u062A\u0641\u0643\u064A\u0631";
+console.log(mot); // التفكير
