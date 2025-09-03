@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMO Robot Eyes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: none;
+        }
+
+        .robot-face {
+            position: relative;
+            width: 300px;
+            height: 200px;
+        }
+
+        .eye {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background: #222;
+            border-radius: 50%;
+            border: 3px solid #00ff88;
+            box-shadow: 
+                0 0 20px #00ff88,
+                inset 0 0 10px rgba(0, 255, 136, 0.3);
+            transition: all 0.1s ease;
+        }
+
+        .eye.left {
+            left: 50px;
+            top: 60px;
+        }
+
+        .eye.right {
+            right: 50px;
+            top: 60px;
+        }
+
+        .pupil {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: #00ff88;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 
+                0 0 15px #00ff88,
+                inset 0 0 8px rgba(255, 255, 255, 0.3);
+            transition: all 0.2s ease;
+        }
+
+        .highlight {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            top: 25%;
+            left: 30%;
+            transition: all 0.1s ease;
+        }
+
+        .blink-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #000;
+            border-radius: 50%;
+            transform: scaleY(0);
+            transform-origin: center;
+            transition: transform 0.15s ease;
+        }
+
+        .eye.blinking .blink-overlay {
+            transform: scaleY(1);
+        }
+
+        .eye:hover {
+            border-color: #00ccff;
+            box-shadow: 
+                0 0 30px #00ccff,
+                inset 0 0 15px rgba(0, 204, 255, 0.4);
+        }
+
+        .eye:hover .pupil {
+            background: #00ccff;
+            box-shadow: 
+                0 0 20px #00ccff,
+                inset 0 0 10px rgba(255, 255, 255, 0.4);
+        }
+
+        .scanline {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            right: -100%;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                #00ff88, 
+                transparent);
+            animation: scan 3s linear infinite;
+        }
+
+        @keyframes scan {
+            0% { top: 0; opacity: 1; }
+            100% { top: 100%; opacity: 0; }
+        }
+
+        .glow-effect {
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            border-radius: 50%;
+            background: radial-gradient(circle, transparent 60%, rgba(0, 255, 136, 0.1) 100%);
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .eye:hover .glow-effect {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="robot-face">
+        <div class="eye left">
+            <div class="glow-effect"></div>
+            <div class="scanline"></div>
+            <div class="pupil">
+                <div class="highlight"></div>
+            </div>
+            <div class="blink-overlay"></div>
+        </div>
+        <div class="eye right">
+            <div class="glow-effect"></div>
+            <div class="scanline"></div>
+            <div class="pupil">
+                <div class="highlight"></div>
+            </div>
+            <div class="blink-overlay"></div>
+        </div>
+    </div>
+
+    <script>
+        const eyes = document.querySelectorAll('.eye');
+        const pupils = document.querySelectorAll('.pupil');
+        let isBlinking = false;
+
+        // Suivre la souris
+        document.addEventListener('mousemove', (e) => {
+            if (isBlinking) return;
+
+            const mouseX = e.clientX;
+            const mouseY = e.clientY;
+
+            pupils.forEach((pupil, index) => {
+                const eye = eyes[index];
+                const eyeRect = eye.getBoundingClientRect();
+                const eyeCenterX = eyeRect.left + eyeRect.width / 2;
+                const eyeCenterY = eyeRect.top + eyeRect.height / 2;
+
+                const deltaX = mouseX - eyeCenterX;
+                const deltaY = mouseY - eyeCenterY;
+                const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+                const maxDistance = 25; // Limite de mouvement de la pupille
+
+                const moveX = (deltaX / distance) * Math.min(distance / 5, maxDistance);
+                const moveY = (deltaY / distance) * Math.min(distance / 5, maxDistance);
+
+                pupil.style.transform = `translate(${-50 + moveX}%, ${-50 + moveY}%)`;
+            });
+        });
+
+        // Clic pour cligner des yeux
+        document.addEventListener('click', () => {
+            if (isBlinking) return;
+            
+            isBlinking = true;
+            eyes.forEach(eye => {
+                eye.classList.add('blinking');
+            });
+
+            setTimeout(() => {
+                eyes.forEach(eye => {
+                    eye.classList.remove('blinking');
+                });
+                isBlinking = false;
+            }, 200);
+        });
+
+        // Clignement automatique aléatoire
+        setInterval(() => {
+            if (Math.random() < 0.1 && !isBlinking) { // 10% de chance
+                isBlinking = true;
+                eyes.forEach(eye => {
+                    eye.classList.add('blinking');
+                });
+
+                setTimeout(() => {
+                    eyes.forEach(eye => {
+                        eye.classList.remove('blinking');
+                    });
+                    isBlinking = false;
+                }, 150);
+            }
+        }, 2000);
+
+        // Double-clic pour effet spécial
+        document.addEventListener('dblclick', () => {
+            document.body.style.background = `radial-gradient(circle at ${event.clientX}px ${event.clientY}px, #001122, #000)`;
+            
+            setTimeout(() => {
+                document.body.style.background = '#000';
+            }, 1000);
+        });
+
+        // Réinitialiser la position des pupilles quand la souris sort
+        document.addEventListener('mouseleave', () => {
+            pupils.forEach(pupil => {
+                pupil.style.transform = 'translate(-50%, -50%)';
+            });
+        });
+    </script>
+</body>
+</html>
