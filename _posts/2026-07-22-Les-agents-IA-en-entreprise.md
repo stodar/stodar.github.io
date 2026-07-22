@@ -1,4 +1,4 @@
-# Les agents IA en entreprise : au-delà de l'intelligence, un nouveau défi de gouvernance
+# Au-delà de l'intelligence, un nouveau défi de gouvernance
 
 > *Les agents IA promettent de transformer profondément les entreprises. Mais leur véritable défi n'est pas leur intelligence : c'est la manière dont ils sont intégrés, gouvernés et sécurisés au sein du système d'information.*
 
