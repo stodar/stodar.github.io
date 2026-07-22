@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Les agents IA en entreprise : au-delà de l'intelligence, un nouveau défi de gouvernance"
-categories: IA
+date: 2026-07-22
 ---
 
 ## Introduction
