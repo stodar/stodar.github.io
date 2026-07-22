@@ -1,4 +1,4 @@
-# Au-delà de l'intelligence, un nouveau défi de gouvernance
+# Les agents IA en entreprise : au-delà de l'intelligence, un nouveau défi de gouvernance
 
 ## Introduction
 
