@@ -1,10 +1,8 @@
 ---
 layout: post
-title: "N'importe quel titre, même avec des : ou des accents"
+title: "Les agents IA en entreprise : au-delà de l'intelligence, un nouveau défi de gouvernance"
 date: 2026-07-22
 ---
-
-# Les agents IA en entreprise : au-delà de l'intelligence, un nouveau défi de gouvernance
 
 ## Introduction
 
