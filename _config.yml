@@ -20,3 +20,6 @@ exclude:
   - README.md
   - Gemfile
   - Gemfile.lock
+
+disqus:
+  shortname: wmsdardar
