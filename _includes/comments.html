@@ -1,4 +1,4 @@
-<script src="https://giscus.app/client.js"
+<!-- <script src="https://giscus.app/client.js"
         data-repo="stodar/stodar.github.io"
         data-repo-id="R_kgDOTfnpRw"
         data-category="General"
@@ -13,4 +13,6 @@
         data-loading="lazy"
         crossorigin="anonymous"
         async>
-</script>
+</script> -->
+
+ {% if site.disqus.stodar -%} <div id="disqus_thread"></div> <script> var disqus_config = function () { this.page.url = '{{ page.url | absolute_url }}'; this.page.identifier = '{{ page.id }}'; }; (function() { var d = document, s = d.createElement('script'); s.src = 'https://{{ site.disqus.stodar }}.disqus.com/embed.js'; s.setAttribute('data-timestamp', +new Date()); (d.head || d.body).appendChild(s); })(); </script> <noscript> Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a> </noscript> {% endif -%}
